@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resume>
+    <name>BIROL SENTURK</name>
+    <title>Software Engineer</title>
+    <contact>
+        <email>birolsenturk@outlook.com</email>
+        <phone>+1 (647) 774-5949</phone>
+        <linkedin>
+            <url>https://www.linkedin.com/in/birolsen</url>
+            <text>LinkedIn/birolsen</text>
+        </linkedin>
+        <location>Toronto</location>
+    </contact>
+
+    <experience>
+        <job>
+            <jobTitle>Software Engineer</jobTitle>
+            <company>4XDigital</company>
+            <duration>08/2024 - Present</duration>
+            <location>Toronto</location>
+            <responsibilities>
+                <responsibility>Architected and implemented agentic workflows to explore and extract factually grounded website exploration tools to create profiles for arbitrary online storefronts</responsibility>
+                <responsibility>Spearheaded creation of advertising campaign strategies, text and image assets, review and revise and iterate over campaign settings and assets</responsibility>
+                <responsibility>Designed and implemented fault tolerant scalable automated systems to create and optimize online advertising campaigns fully autonomously with given online storefronts</responsibility>
+            </responsibilities>
+        </job>
+        <job>
+            <jobTitle>Software Engineer</jobTitle>
+            <company>StackAdapt</company>
+            <duration>03/2024 - 08/2024</duration>
+            <location>Toronto</location>
+            <responsibilities>
+                <responsibility>Orchestrated and implemented various improvements to the real-time user data persistence pipeline</responsibility>
+                <responsibility>Directed compliance engineering efforts specifically around new requirements for GDPR and CPRA laws</responsibility>
+            </responsibilities>
+        </job>
+        <job>
+            <jobTitle>Software Development Engineer II</jobTitle>
+            <company>Amazon Ads - Sponsored Products</company>
+            <duration>06/2022 - 10/2023</duration>
+            <location>Toronto</location>
+            <responsibilities>
+                <responsibility>Contributed to development and upkeep of SP's real-time bid modulation system operating WW in 20 marketplaces, processing millions of requests per minute with near 100% availability</responsibility>
+                <responsibility>Collaborated with science team to design and implement multiple experiments investigating performance of different bidding strategies</responsibility>
+                <responsibility>Formulated technical strategy and orchestrated collaborative efforts with four cross-functional teams to execute seamless migration of team's data platform access model</responsibility>
+            </responsibilities>
+        </job>
+        <job>
+            <jobTitle>Software Development Engineer II</jobTitle>
+            <company>Amazon - Alexa Shopping</company>
+            <duration>03/2021 - 06/2022</duration>
+            <location>Toronto</location>
+            <responsibilities>
+                <responsibility>Contributed to microservice offering personalized grocery recommendations through Alexa voice commands, integrated to Amazon's grocery delivery services</responsibility>
+                <responsibility>Pioneered multi-modal grocery ordering experience for Echo Show devices with displays which expanded product into new cohort of customers</responsibility>
+                <responsibility>Developed customer experience for ordering items from list of thematic recommendations on special occasions such as holidays or sporting events</responsibility>
+            </responsibilities>
+        </job>
+        <job>
+            <jobTitle>Software Engineer</jobTitle>
+            <company>Brown University - Center for Evidence Synthesis in Health</company>
+            <duration>06/2016 - 02/2021</duration>
+            <location>Providence, RI</location>
+            <responsibilities>
+                <responsibility>Collaborated in two-engineer team to develop novel, free, and open-access systematic review tool tailored for health researchers</responsibility>
+                <responsibility>Innovated and built new tool on SRDR+ (https://srdrplus.ahrq.gov) for crafting dynamic systematic review summaries involving creating prototypes and conducting multiple rounds of usability testing with researchers</responsibility>
+                <responsibility>Engineered citation management solution accommodating diverse file formats and enabling retrieval of data from online research databases</responsibility>
+                <responsibility>Implemented abstract screening functionality with additional features such as improved term highlighting, ability to update past screening decisions, option to record reasons for screening decisions to SRDR+ website</responsibility>
+                <responsibility>Constructed automated tool to compare extracted research data and reconcile differences when necessary</responsibility>
+                <responsibility>Produced interactive visualization to display systematic review data interactively as connected graph where each node represents medical intervention and vertices show clinical trials comparing them</responsibility>
+            </responsibilities>
+        </job>
+    </experience>
+
+    <education>
+        <school>
+            <degree>ScB, Computer Science</degree>
+            <university>Brown University</university>
+            <graduationDate>05/2016</graduationDate>
+        </school>
+    </education>
+
+    <skills>
+        <category name="Programming Languages">Java, Python, SQL, Ruby</category>
+        <category name="Technologies">AWS, Rails, Apache Airflow, PySpark</category>
+        <category name="Domains">Real Time Bidding, Distributed Systems, Microservices, High-throughput, Low-latency, Data Science</category>
+    </skills>
+
+    <languages>
+        <language>
+            <name>English</name>
+            <proficiency>Fluent</proficiency>
+        </language>
+        <language>
+            <name>Turkish</name>
+            <proficiency>Native</proficiency>
+        </language>
+    </languages>
+
+    <publications>
+        <publication>
+            <title>Web-Based Interactive Presentation of Systematic Review Reports</title>
+            <journal>The Joint Commission Journal on Quality and Patient Safety</journal>
+            <authors>Adam G, Senturk B, Balk E, Sanders G, Jap J, Lallinger K, Butler M, Brasure M, Trikalinos T</authors>
+            <year>2019</year>
+            <url></url>
+        </publication>
+        <publication>
+            <title>Making Outcomes Data From Systematic Reviews Accessible – The Systematic Review Data Repository 2.0</title>
+            <journal>Value In Health</journal>
+            <authors>Saldanha I, Smith B, Jap J, Senturk B, Lau J, Balk E</authors>
+            <year>2019</year>
+            <url>https://doi.org/10.1016/j.jval.2019.04.1528</url>
+        </publication>
+    </publications>
+</resume>
