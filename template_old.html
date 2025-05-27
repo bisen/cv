@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{resume.name}} - {{resume.title}}</title>
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --text-color: #333;
+            --background-color: #f8f9fa;
+            --white: #fff;
+            --light-gray: #eee;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 40px auto;
+            background: var(--white);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 40px;
+            text-align: left;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header .title {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9em;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .contact-info a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: var(--primary-color);
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+        }
+
+        .timeline {
+            display: flex;
+        }
+
+        .timeline-line {
+            width: 2px;
+            background: var(--light-gray);
+            margin-right: 20px;
+            position: relative;
+        }
+        
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -4px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary-color);
+        }
+
+        .timeline-content {
+            width: 100%;
+        }
+        
+        .experience-item {
+            margin-bottom: 30px;
+        }
+
+        .job-header {
+            margin-bottom: 10px;
+        }
+
+        .job-title {
+            font-weight: 600;
+            font-size: 1.1em;
+            color: var(--text-color);
+        }
+
+        .company {
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        .duration-location {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .job-description {
+            margin: 15px 0;
+        }
+
+        .job-description p {
+            margin-bottom: 10px;
+        }
+        .job-description ul {
+            list-style-position: inside;
+            padding-left: 0;
+        }
+        .job-description ul li {
+            margin-bottom: 8px;
+        }
+
+
+        .skills {
+            background: var(--background-color);
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .skills strong {
+            color: var(--primary-color);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-category {
+            background: var(--background-color);
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .skill-category strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .education-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .degree {
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+        .university {
+            color: var(--primary-color);
+        }
+        .education-date {
+            color: #666;
+            font-size: 0.9em;
+            text-align: right;
+        }
+
+        .languages {
+            display: flex;
+            gap: 30px;
+        }
+
+        .publication {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .publication:last-child {
+            border-bottom: none;
+        }
+
+        .pub-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .pub-journal {
+            color: var(--primary-color);
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+
+        .pub-authors {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+        
+        .pub-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        
+        .pub-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 0;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .timeline {
+                flex-direction: column;
+            }
+            
+            .timeline-line {
+                display: none;
+            }
+            .education-item {
+                flex-direction: column;
+            }
+            .education-date {
+                text-align: left;
+                margin-top: 5px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container"><div class="header">
+            <h1>{{resume.name}}</h1>
+            <div class="title">{{resume.title}}</div>
+            <div class="contact-info">
+                {{#if resume.contact.email}}
+                <span><i class="fas fa-envelope"></i> <a href="mailto:{{resume.contact.email}}">{{resume.contact.email}}</a></span>
+                {{/if}}
+                {{#if resume.contact.phone}}
+                <span><i class="fas fa-phone"></i> {{resume.contact.phone}}</span>
+                {{/if}}
+                {{#if resume.contact.linkedin}}
+                <span><i class="fab fa-linkedin"></i> <a href="{{resume.contact.linkedin.url}}" target="_blank">{{resume.contact.linkedin.text}}</a></span>
+                {{/if}}
+                {{#if resume.contact.location}}
+                <span><i class="fas fa-map-marker-alt"></i> {{resume.contact.location}}</span>
+                {{/if}}
+            </div>
+        </div>
+        <div class="content">
+            {{#if resume.experience}}
+            <div class="section">
+                <h2>EXPERIENCE</h2>
+                <div class="timeline">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-content">
+                        {{#each resume.experience}}
+                        <div class="experience-item">
+                            <div class="job-header">
+                                <div>
+                                    <div class="job-title">{{this.jobTitle}}</div>
+                                    <div class="company">{{this.company}}</div>
+                                </div>
+                                <div class="duration-location">{{this.duration}} | {{this.location}}</div>
+                            </div>
+                            <div class="job-description">
+                                {{#each this.responsibilities}}
+                                <p>{{this}}</p>
+                                {{/each}}
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+
+            {{#if resume.education}}
+            <div class="section">
+                <h2>EDUCATION</h2>
+                {{#each resume.education}}
+                <div class="education-item">
+                    <div>
+                        <div class="degree">{{this.degree}}</div>
+                        <div class="university">{{this.university}}</div>
+                    </div>
+                    <div class="education-date">{{this.graduationDate}}</div>
+                </div>
+                {{/each}}
+            </div>
+            {{/if}}
+
+            {{#if resume.skills}}
+            <div class="section">
+                <h2>SKILLS</h2>
+                <div class="skills-grid">
+                    {{#each resume.skills}}
+                    <div class="skill-category">
+                        <strong>{{this.category}}:</strong> {{this.items}}
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            {{/if}}
+
+            {{#if resume.languages}}
+            <div class="section">
+                <h2>LANGUAGES</h2>
+                <div class="languages">
+                    {{#each resume.languages}}
+                    <div><strong>{{this.name}}:</strong> {{this.proficiency}}</div>
+                    {{/each}}
+                </div>
+            </div>
+            {{/if}}
+
+            {{#if resume.publications}}
+            <div class="section">
+                <h2>PUBLICATIONS</h2>
+                {{#each resume.publications}}
+                <div class="publication">
+                    <div class="pub-title">{{this.title}}</div>
+                    <div class="pub-journal">{{this.journal}}</div>
+                    <div class="pub-authors">{{this.authors}} | {{this.year}}</div>
+                    {{#if this.url}}
+                    <a href="{{this.url}}" class="pub-link" target="_blank">{{this.url}}</a>
+                    {{/if}}
+                </div>
+                {{/each}}
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</body>
+</html>
