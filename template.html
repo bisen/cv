@@ -125,6 +125,17 @@
             background: var(--accent);
         }
 
+        .summary {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .summary p {
+            margin: 0;
+        }
+
         .experience-item {
             display: grid;
             grid-template-columns: 1fr 3fr;
@@ -169,6 +180,23 @@
             margin-bottom: 15px;
             color: var(--text-secondary);
             line-height: 1.8;
+        }
+
+        .team-section {
+            margin-bottom: 30px;
+        }
+
+        .team-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .team-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .education-grid {
@@ -259,6 +287,66 @@
         .languages strong {
             color: var(--text-primary);
             font-size: 1.2rem;
+        }
+
+        .project {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: var(--dark-gray);
+            border-left: 3px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .project:hover {
+            background: var(--medium-gray);
+            transform: translateX(10px);
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.3;
+            color: var(--text-primary);
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .project-technologies {
+            margin-bottom: 15px;
+        }
+
+        .tech-tag {
+            display: inline-block;
+            background: var(--medium-gray);
+            color: var(--accent);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 4px;
+        }
+
+        .project-link {
+            color: var(--accent-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: gap 0.3s ease;
+        }
+
+        .project-link:hover {
+            gap: 10px;
+        }
+
+        .project-link::after {
+            content: '→';
         }
 
         .publication {
@@ -357,13 +445,24 @@
                 <span><i class="fas fa-phone"></i> {{resume.contact.phone}}</span>
                 {{/if}}
                 {{#if resume.contact.linkedin}}
-                <span><i class="fab fa-linkedin"></i> <a href="{{resume.contact.linkedin.url}}" target="_blank">{{resume.contact.linkedin.text}}</a></span>
+                <span><i class="fab fa-linkedin"></i> <a href="{{resume.contact.linkedin}}" target="_blank">{{resume.contact.linkedin}}</a></span>
+                {{/if}}
+                {{#if resume.contact.website}}
+                <span><i class="fas fa-globe"></i> <a href="{{resume.contact.website}}" target="_blank">{{resume.contact.website}}</a></span>
                 {{/if}}
                 {{#if resume.contact.location}}
                 <span><i class="fas fa-map-marker-alt"></i> {{resume.contact.location}}</span>
                 {{/if}}
             </div>
         </div>
+
+        {{#if resume.summary}}
+        <div class="section">
+            <div class="summary">
+                <p>{{resume.summary}}</p>
+            </div>
+        </div>
+        {{/if}}
 
         {{#if resume.experience}}
         <div class="section">
@@ -375,11 +474,22 @@
                     <div class="company">{{this.company}}</div>
                 </div>
                 <div class="job-content">
-                    <div class="job-title">{{this.jobTitle}}</div>
+                    <div class="job-title">{{this.position}}</div>
                     <div class="job-description">
-                        {{#each this.responsibilities}}
-                        <p>{{this}}</p>
-                        {{/each}}
+                        {{#if this.teams}}
+                            {{#each this.teams}}
+                            <div class="team-section">
+                                <div class="team-name">{{this.name}}</div>
+                                {{#each this.responsibilities}}
+                                <p>{{this}}</p>
+                                {{/each}}
+                            </div>
+                            {{/each}}
+                        {{else}}
+                            {{#each this.responsibilities}}
+                            <p>{{this}}</p>
+                            {{/each}}
+                        {{/if}}
                     </div>
                 </div>
             </div>
@@ -394,8 +504,8 @@
                 {{#each resume.education}}
                 <div class="education-item">
                     <div class="degree">{{this.degree}}</div>
-                    <div class="university">{{this.university}}</div>
-                    <div class="education-date">{{this.graduationDate}}</div>
+                    <div class="university">{{this.institution}}</div>
+                    <div class="education-date">{{this.location}} | {{this.graduationYear}}</div>
                 </div>
                 {{/each}}
             </div>
@@ -426,6 +536,26 @@
                 </div>
                 {{/each}}
             </div>
+        </div>
+        {{/if}}
+
+        {{#if resume.personal_projects}}
+        <div class="section">
+            <h2>PROJECTS</h2>
+            {{#each resume.personal_projects}}
+            <div class="project">
+                <div class="project-title">{{this.projectName}}</div>
+                <div class="project-description">{{this.description}}</div>
+                <div class="project-technologies">
+                    {{#each this.technologies}}
+                    <span class="tech-tag">{{this}}</span>
+                    {{/each}}
+                </div>
+                {{#if this.url}}
+                <a href="{{this.url}}" class="project-link" target="_blank">View Project</a>
+                {{/if}}
+            </div>
+            {{/each}}
         </div>
         {{/if}}
 

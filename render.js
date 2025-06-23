@@ -1,29 +1,21 @@
 const fs = require('fs');
 const path = require('path');
 const Handlebars = require('handlebars');
-const { XMLParser } = require('fast-xml-parser');
 
 // --- Main Build Function ---
 async function buildCV() {
   try {
     console.log('Starting CV build process...');
 
-    // 1. Read the XML data file
-    const xmlString = fs.readFileSync(path.join(__dirname, 'cv-data.xml'), 'utf8');
+    // 1. Read the JSON data file
+    const jsonString = fs.readFileSync(path.join(__dirname, 'cv-data.json'), 'utf8');
 
     // 2. Read the Handlebars template file
     const templateSource = fs.readFileSync(path.join(__dirname, 'template.html'), 'utf8');
 
-    // 3. Parse XML to a JavaScript object
-    const parser = new XMLParser({
-      ignoreAttributes: false,
-      attributeNamePrefix: "@",
-      textNodeName: "#text",
-      parseAttributeValue: true,
-      allowBooleanAttributes: true
-    });
-    const rawJsonData = parser.parse(xmlString).resume;
-    console.log('Successfully parsed XML data.');
+    // 3. Parse JSON to a JavaScript object
+    const rawJsonData = JSON.parse(jsonString);
+    console.log('Successfully parsed JSON data.');
 
     // 4. Transform the raw JSON into the structure our template expects
     const resumeData = transformData(rawJsonData);
@@ -51,47 +43,49 @@ async function buildCV() {
 }
 
 // --- Data Transformation Helper ---
-// This function cleans up the parsed XML to make it easier to use in Handlebars
+// This function transforms the JSON data to make it easier to use in Handlebars
 function transformData(rawJson) {
   return {
     name: rawJson.name || '',
     title: rawJson.title || '',
+    summary: rawJson.summary || '',
     contact: {
       email: rawJson.contact?.email || '',
       phone: rawJson.contact?.phone || '',
-      linkedin: {
-        url: rawJson.contact?.linkedin?.url || '',
-        text: rawJson.contact?.linkedin?.text || ''
-      },
+      linkedin: rawJson.contact?.linkedin || '',
+      website: rawJson.contact?.website || '',
       location: rawJson.contact?.location || ''
     },
-    experience: (Array.isArray(rawJson.experience?.job) ? rawJson.experience.job : [rawJson.experience.job]).map(job => ({
-      jobTitle: job.jobTitle || '',
+    experience: rawJson.experience?.map(job => ({
+      position: job.position || '',
       company: job.company || '',
-      duration: job.duration || '',
+      startDate: job.startDate || '',
+      endDate: job.endDate || '',
+      duration: `${job.startDate} - ${job.endDate}`,
       location: job.location || '',
-      responsibilities: Array.isArray(job.responsibilities?.responsibility) ? job.responsibilities.responsibility : [job.responsibilities.responsibility]
-    })),
-    education: (Array.isArray(rawJson.education?.school) ? rawJson.education.school : [rawJson.education.school]).map(edu => ({
+      responsibilities: job.responsibilities || [],
+      teams: job.teams || null
+    })) || [],
+    education: rawJson.education?.map(edu => ({
       degree: edu.degree || '',
-      university: edu.university || '',
-      graduationDate: edu.graduationDate || ''
-    })),
-    skills: (Array.isArray(rawJson.skills?.category) ? rawJson.skills.category : [rawJson.skills.category]).map(skillCat => ({
-      category: skillCat['@name'] || '',
-      items: skillCat['#text'] || ''
-    })),
-    languages: (Array.isArray(rawJson.languages?.language) ? rawJson.languages.language : [rawJson.languages.language]).map(lang => ({
+      institution: edu.institution || '',
+      location: edu.location || '',
+      graduationYear: edu.graduationYear || ''
+    })) || [],
+    skills: rawJson.skills?.map(skill => ({
+      category: skill.category || '',
+      items: skill.items || ''
+    })) || [],
+    languages: rawJson.languages?.map(lang => ({
       name: lang.name || '',
       proficiency: lang.proficiency || ''
-    })),
-    publications: (Array.isArray(rawJson.publications?.publication) ? rawJson.publications.publication : [rawJson.publications.publication]).map(pub => ({
-      title: pub.title || '',
-      journal: pub.journal || '',
-      authors: pub.authors || '',
-      year: pub.year || '',
-      url: pub.url || ''
-    }))
+    })) || [],
+    personal_projects: rawJson.personal_projects?.map(project => ({
+      projectName: project.projectName || '',
+      description: project.description || '',
+      technologies: project.technologies || [],
+      url: project.url || ''
+    })) || []
   };
 }
 

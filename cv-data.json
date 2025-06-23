@@ -1,0 +1,144 @@
+{
+  "contact": {
+    "email": "birolsenturk@outlook.com",
+    "linkedin": "https://www.linkedin.com/in/birolsenturk/",
+    "location": "Toronto, ON",
+    "phone": "+1 (647) 774-5949",
+    "website": "https://birol.site"
+  },
+  "summary": "Versatile Software Engineer with 8+ years of experience across the full software lifecycle, from architecting high-throughput distributed systems and data pipelines to developing data-driven LLM agents. Proven expertise in cloud-native platforms (Azure, AWS), delivering robust solutions in AdTech and e-commerce",
+  "education": [
+    {
+      "degree": "ScB in Computer Science",
+      "fieldOfStudy": "Computer Science",
+      "graduationYear": "2016",
+      "institution": "Brown University",
+      "location": "Providence, RI"
+    }
+  ],
+  "experience": [
+    {
+      "company": "4XDigital",
+      "startDate": "09/2024",
+      "endDate": "Present",
+      "position": "Software Engineer",
+      "location": "Toronto, ON",
+      "responsibilities": [
+        "Architected and implemented an AI-based campaign management system that autonomously generates and launches campaigns, delivering over 50M impressions for 100+ clients across Google and Meta platforms.",
+        "Designed the system's scalable, serverless architecture on Azure using Durable Functions to power the agentic website analysis and automated ad asset generation.",
+        "Led a team of 3 engineers to productionize the learnings from an agentic systems prototype, successfully developing and launching new text and image generation agents to power Meta and Google campaigns.",
+        "Engineered and productized a novel agentic system as a B2B offering for retail platforms, enabling deep analysis of website conversion funnels to generate critical improvement insights for SMB customers.",
+        "Built a full-stack customer management system with Stripe integration, developing ASP.NET Core microservices and AngularJS frontend to streamline customer billing and subscription management workflows.",
+        "Cut Azure cloud costs by over 50% by re-architecting LLM workflows from containerized Promptflow deployments to a more efficient serverless model using Azure Functions."
+      ]
+    },
+    {
+      "company": "StackAdapt",
+      "startDate": "03/2024",
+      "endDate": "08/2024",
+      "position": "Software Engineer",
+      "location": "Toronto, ON",
+      "responsibilities": [
+        "Preserved the integrity of critical user journey data for millions of users by engineering a fallback matching logic to counteract the industry-wide loss of mobile device identifiers (e.g., Apple's IDFA).",
+        "Played a key role in mitigating compliance risk by enhancing critical components of the Go-based user opt-out pipeline, guaranteeing the platform's adherence to data privacy regulations like GDPR and CCPA."
+      ]
+    },
+    {
+      "company": "Amazon",
+      "startDate": "03/2021",
+      "endDate": "10/2023",
+      "position": "Software Development Engineer II",
+      "location": "Toronto, ON",
+      "teams": [
+        {
+          "name": "Amazon Ads",
+          "responsibilities": [
+            "Designed and implemented production bidding algorithms for real-time bidding service, optimizing millions of ad bids across 13 global marketplaces generating tens of millions in incremental customer value.",
+            "Owned and optimized critical data pipelines using Apache Airflow, debugging failures and improving query performance to ensure reliable hourly, daily, and weekly data processing for real time bidding algorithms.",
+            "Reduced AWS operational costs by 20% and improved p99 latency by nearly 5% for a global bidding system (millions of RPM) by planning and executing a zero-downtime migration to ARM-based AWS Graviton instances.",
+            "Orchestrated the successful rollout of the v2 bidding algorithm across European and Eastern marketplaces, planning and deploying all required infrastructure and executing a phased dial-up that unlocked millions of dollars in new value.",
+            "Led the seamless migration of data access policies for over 50 critical Sponsored Products datasets, guaranteeing zero loss of access for 8 engineering teams during a company-wide deprecation of legacy access controls."
+          ]
+        },
+        {
+          "name": "Alexa",
+          "responsibilities": [
+            "Significantly advanced Alexa's e-commerce platform by engineering the backend for a next-generation, multi-modal grocery experience, enabling customizable cart-building, personalized recommendations, and event-based campaigns."
+          ]
+        }
+      ]
+    },
+    {
+      "company": "Brown University, Center for Evidence Synthesis in Health",
+      "startDate": "07/2016",
+      "endDate": "02/2021",
+      "position": "Software Engineer",
+      "location": "Providence, RI",
+      "responsibilities": [
+        "Co-developed SRDR+, an NIH-funded systematic review platform built on Ruby on Rails, MariaDB, and Sidekiq, enabling thousands of research projects at top-tier universities globally.",
+        "Validated the efficacy of an ML abstract screening tool through thousands of simulations, culminating in a published study demonstrating the tool could reduce manual review effort by over 50% while maintaining 98% accuracy."
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "name": "English",
+      "proficiency": "Fluent"
+    },
+    {
+      "name": "Turkish",
+      "proficiency": "Native"
+    }
+  ],
+  "name": "Birol Senturk",
+  "personal_projects": [
+    {
+      "description": "An autonomous system that analyzes an e-commerce storefront, generates targeted ad copy and creatives using generative AI, and deploys campaigns via Google Ads API. The project focuses on creating a feedback loop for performance-based iteration.",
+      "projectName": "Agentic Ad Campaign Generator",
+      "technologies": [
+        "Python",
+        "LangChain",
+        "Google Gemini API",
+        "FastAPI",
+        "Docker",
+        "Google Ads API"
+      ],
+      "url": "https://github.com/birolsenturk/ad-agent-project"
+    },
+    {
+      "description": "Developed a simulation environment to model and test various bidding strategies in a high-throughput, low-latency setting. The simulator processes mock ad auction data and visualizes the performance and cost-effectiveness of different bidding algorithms.",
+      "projectName": "Real-Time Bidding (RTB) Simulator",
+      "technologies": [
+        "Java",
+        "Apache Kafka",
+        "Redis",
+        "Grafana",
+        "Spring Boot"
+      ],
+      "url": "https://github.com/birolsenturk/rtb-simulator"
+    }
+  ],
+  "skills": [
+    {
+      "category": "Languages",
+      "items": "Python, Java, C#, Golang, JavaScript, TypeScript, SQL, Elixir, Ruby"
+    },
+    {
+      "category": "Data",
+      "items": "PostgreSQL, MariaDB, Apache Airflow, Amazon DynamoDB, Azure Cosmos DB, Redis"
+    },
+    {
+      "category": "Cloud & DevOps",
+      "items": "AWS, Azure, Terraform, Docker, Kubernetes, CI/CD (GitHub Actions), Serverless (Azure Functions), CloudFormation"
+    },
+    {
+      "category": "LLM & AI",
+      "items": "Generative AI, Agentic Systems, RAG, DSPy, Promptflow, OpenAI API, Vector Databases"
+    },
+    {
+      "category": "Frameworks",
+      "items": "ASP.NET Core, Ruby on Rails, Phoenix, Angular, FastAPI, HTMX, N8N"
+    }
+  ],
+  "title": "Software Engineer"
+}
